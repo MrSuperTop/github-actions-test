@@ -1,0 +1,5 @@
+release:
+  command:
+    - npx prisma migrate deploy
+run:
+  web: npm start
