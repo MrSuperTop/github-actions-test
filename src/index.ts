@@ -17,7 +17,7 @@ fastify.get('/', (
   reply.send(`This server is running! And served ${requestNumber} request(s)`);
 })
 
-fastify.get('/post/1', async (
+fastify.get('/posts', async (
   _,
   reply
 ) => {
@@ -30,21 +30,20 @@ fastify.get('/post/1', async (
   reply.send(post)
 })
 
-const main = async () => {
-  const post = prisma.post.findUnique({
-    where: {
-      id: 1
+fastify.post('/post', async (
+  _,
+  reply
+) => {
+  const post = await prisma.post.create({
+    data: {
+      title: 'hello!'
     }
-  });
-  
-  if (!post) {
-    prisma.post.create({
-      data: {
-        title: 'Hello I am a post'
-      }
-    })
-  }
+  })
 
+  reply.send(post)
+})
+
+const main = async () => {
   fastify.listen(PORT, '0.0.0.0', function (err, address) {
     if (err) {
       fastify.log.error(err)
