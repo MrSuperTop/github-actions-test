@@ -1,0 +1,14 @@
+{
+  "name": "heroku-deploy-test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@swc/cli": "^0.1.57",
+    "@swc/core": "^1.2.197",
+    "nodemon": "^2.0.16"
+  },
+  "scripts": {
+    "dev": "yarn swc ./src -d dist --watch & yarn nodemon ./dist/index.js"
+  }
+}
