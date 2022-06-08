@@ -4,9 +4,12 @@ const fastify = Fastify({
 })
 
 const PORT = process.env.PORT || 3000
+let requestNumber = 0;
 
 fastify.get('/', (_, reply) => {
-  reply.send('This server is running!')
+  requestNumber += 1;
+
+  reply.send(`This server is running! And served ${requestNumber} request(s)`)
 })
 
 fastify.listen(PORT, '0.0.0.0', function (err, address) {
