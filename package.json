@@ -9,7 +9,7 @@
   },
   "scripts": {
     "dev": "yarn swc ./src -d dist --config-file ./.swcrc --watch & yarn nodemon ./dist/index.js",
-    "start": "yarn && yarn swc ./src -d dist && node ./dist/index.js"
+    "start": "yarn swc ./src -d dist && node ./dist/index.js"
   },
   "dependencies": {
     "@swc/cli": "^0.1.57",
