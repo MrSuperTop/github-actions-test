@@ -10,8 +10,8 @@
     "nodemon": "^2.0.16"
   },
   "scripts": {
-    "dev": "yarn swc ./src -d dist --config-file ./.swcrc --watch & yarn nodemon ./dist/index.js",
-    "start": "yarn swc ./src -d dist && node ./dist/index.js"
+    "dev": "npx swc ./src -d dist --config-file ./.swcrc --watch & npx nodemon ./dist/index.js",
+    "start": "npx swc ./src -d dist && node ./dist/index.js"
   },
   "dependencies": {
     "fastify": "^3.29.0"
