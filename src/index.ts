@@ -1,11 +1,20 @@
-import Fastify from 'fastify'
+import Fastify from 'fastify';
+import Redis from 'ioredis';
+import { PrismaClient } from '@prisma/client';
+
 const fastify = Fastify({
   logger: true
-})
+});
 
-import { PrismaClient } from '@prisma/client'
-const prisma = new PrismaClient()
-const PORT = process.env.PORT || 3000
+const prisma = new PrismaClient();
+const redis = new Redis({
+  host: "redis-15340.c293.eu-central-1-1.ec2.cloud.redislabs.com",
+  port: 15340,
+  username: 'default',
+  password: 'SDkmFLmNJB0PJS91w14PD1QRcmWQX028'
+});
+
+const PORT = process.env.PORT || 3000;
 let requestNumber = 0;
 
 fastify.get('/', (
@@ -23,7 +32,11 @@ fastify.get('/posts', async (
 ) => {
   const post = await prisma.post.findMany();
 
-  reply.send(post)
+  await redis.set('hello', 'test');
+
+  const data = await redis.get('hello');
+
+  reply.send({ post, data })
 })
 
 fastify.post('/post', async (
