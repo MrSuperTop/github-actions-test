@@ -4,16 +4,16 @@
   "main": "index.js",
   "license": "MIT",
   "devDependencies": {
-    "@swc/cli": "^0.1.57",
-    "@swc/core": "^1.2.197",
     "@types/node": "^17.0.41",
     "nodemon": "^2.0.16"
   },
   "scripts": {
-    "dev": "npx swc ./src -d dist --config-file ./.swcrc --watch & npx nodemon ./dist/index.js",
-    "start": "npx swc ./src -d dist && node ./dist/index.js"
+    "dev": "yarn swc ./src -d dist --config-file ./.swcrc --watch & yarn nodemon ./dist/index.js",
+    "start": "yarn && yarn swc ./src -d dist && node ./dist/index.js"
   },
   "dependencies": {
+    "@swc/cli": "^0.1.57",
+    "@swc/core": "^1.2.197",
     "fastify": "^3.29.0"
   }
 }
