@@ -1,0 +1,19 @@
+{
+  "jsc": {
+    "target": "es2017",
+    "externalHelpers": false,
+    "parser": {
+      "syntax": "typescript",
+      "topLevelAwait": true,
+      "tsx": false,
+      "decorators": true,
+      "dynamicImport": false
+    },
+    "transform": {
+      "decoratorMetadata": true
+    }
+  },
+  "module": {
+    "type": "commonjs"
+  }
+}
