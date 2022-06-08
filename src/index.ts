@@ -21,11 +21,7 @@ fastify.get('/posts', async (
   _,
   reply
 ) => {
-  const post = await prisma.post.findUnique({
-    where: {
-      id: 1
-    }
-  })
+  const post = await prisma.post.findMany();
 
   reply.send(post)
 })
