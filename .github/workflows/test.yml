@@ -36,6 +36,6 @@ jobs:
     - name: 'Install dependencies'
       run: pnpm install
     - name: 'Run tests'
-      run: pnpm jest
+      run: pnpm test
       env:
         DATABASE_URL: 'postgresql://postgres:postgres@localhost:5432/test_db?schema=public'
