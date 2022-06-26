@@ -7,7 +7,7 @@
     "build": "prisma generate && pnpm swc ./src -d dist",
     "dev": "pnpm swc ./src -d dist --config-file ./.swcrc --watch & pnpm nodemon ./dist/index.js",
     "start": "node ./dist/index.js",
-    "test": "pnpm jest"
+    "test": "pnpm jest --forceExit"
   },
   "devDependencies": {
     "@swc/core": "^1.2.205",
