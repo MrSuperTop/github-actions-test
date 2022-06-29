@@ -7,10 +7,10 @@ const main = async () => {
 
   fastify.listen(PORT, '0.0.0.0', function (err) {
     if (err) {
-      fastify.log.error(err)
-      process.exit(1)
+      fastify.log.error(err);
+      process.exit(1);
     }
-  })
+  });
 }
 
 void main();

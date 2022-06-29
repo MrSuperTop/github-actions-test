@@ -1,6 +1,7 @@
 import Fastify, { FastifyServerOptions } from 'fastify';
 import Redis from 'ioredis';
 import { PrismaClient } from '@prisma/client';
+import { config } from '../config';
 
 export const createServer = (
   options: FastifyServerOptions = {
@@ -10,10 +11,7 @@ export const createServer = (
   const fastify = Fastify(options);
 
   const prisma = new PrismaClient();
-  const redis = new Redis({
-    host: "localhost",
-    port: 6379,
-  });
+  const redis = new Redis(config.redis);
   
   let requestNumber = 0;
   
