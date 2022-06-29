@@ -36,7 +36,7 @@ jobs:
     - name: 'Install dependencies'
       run: pnpm install
     - name: Decrypt large secret
-      run: ./decrypt_secret.sh
+      run: chmod +x ./decrypt_secret.sh && ./decrypt_secret.sh
       env:
         ENCRYPTION_KEY: ${{ secrets.ENCRYPTION_KEY }}
     - name: 'Run tests'
